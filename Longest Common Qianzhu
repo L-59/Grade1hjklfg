@@ -1,0 +1,11 @@
+char* longestCommonPrefix(char** strs, int strsSize) {
+    for (int j = 0; strs[0][j]; j++) {       // 左到右每一列
+        for (int i = 0; i < strsSize; i++) { // 上到下每一行
+            if (strs[i][j] != strs[0][j]) { // 如果第i行第j列≠第0行第j列
+                strs[0][j] = '\0';          // 第0行第j列为空
+                return strs[0];             // 返回第0行
+            }
+        }
+    }
+    return strs[0]; // 返回第0行
+}
