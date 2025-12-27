@@ -1,2 +1,2 @@
-# Drade 1
+# Grade 1
 language:C
