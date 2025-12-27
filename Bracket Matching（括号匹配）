@@ -1,0 +1,22 @@
+bool isValid(char* s) {
+    char mp[128] = {};
+    mp['('] = ')';
+    mp['['] = ']';
+    mp['{'] = '}';
+    int top = 0; // 直接把s当作栈
+    for (int i = 0; s[i]; i++) {
+        char c = s[i];
+        if (mp[c]) { // mp[c]是左括号
+            s[top++] = mp[c];
+            /*例：{()}
+            判断top是否为0 || → 左边为 true，表达式返回 true →
+            执行入栈：s[top++] = '{'（此时 top = 1，栈：['{']）。
+            判断top是否为0→ 否→ 执行--top（top=0）→ 比较 s[0]（'{'）和 '('
+            是否不相等→ 是（true）→ 表达式返回 true → 入栈：s[top++] =
+            '('（top=2，栈：['{', '(']）。*/
+        } else if (top == 0 || s[--top] != c) {
+            return false;
+        }
+    }
+    return top == 0;
+}
