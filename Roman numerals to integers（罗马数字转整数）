@@ -15,3 +15,6 @@ int romanToInt(char* s) {
     }
     return ans+roman[s[i-1]];
 }
+int main(){
+    printf("%d",romanToInt("IV"));
+}
