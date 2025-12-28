@@ -10,3 +10,6 @@ char* longestCommonPrefix(char** strs, int strsSize) {
     }
     return strs[0]; // 返回第0行
 }
+int main(){
+    printf("%c",strs[0]);
+}
