@@ -1,3 +1,5 @@
+#inculde<stdio.h>
+#iclude<stdbool.h>
 bool isValid(char* s) {
     char mp[128] = {};
     mp['('] = ')';
@@ -19,4 +21,7 @@ bool isValid(char* s) {
         }
     }
     return top == 0;
+}
+int main(){
+    printf("%d",isValid("(){}[]"));
 }
