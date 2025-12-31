@@ -1,0 +1,13 @@
+#define MIN(a,b) ((b)<(a)?(b):(a))
+#define MAX(a,b) ((b)>(a)?(b):(a))// 定义 MAX 取最大值， MIN 取最小值
+int maxArea(int* height, int heightSize) {
+    int ans=0,left=0,right=heightSize-1;// 初始化 int 变量：答案 ans ,左指针 left ,右指针 ringht
+    while(left<right){// 如果 left 和 right 不相遇，才能围成面积
+        int area=(right-left)*MIN(height[left],height[right]);// int 面积 area 等于 right 减 left × left 和 right 中最矮的那个
+        ans=MAX(ans,area);// 更新答案 ans
+        height[left]<height[right]?left++:right--;
+        // 如果 height[left] 更矮，则 height[left] 与右边的任意垂线都无法组成一个比 ans 更大的面积
+        // 如果 height[right] 更矮，则 height[right] 与左边的任意垂线都无法组成一个比 ans 更大的面积
+    }
+    return ans;// 返回答案 ans
+}
