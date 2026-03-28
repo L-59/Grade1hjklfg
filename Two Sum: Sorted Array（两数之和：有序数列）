@@ -1,0 +1,14 @@
+int* twoSum(int* numbers, int numbersSize, int target, int* returnSize) {
+    int left=0,right=numbersSize-1;//定义两个指针放目标
+    while(true){
+        int s=numbers[left]+numbers[right];
+        if(s==target){
+            *returnSize=2;
+            int *ans=malloc(2*sizeof(int));
+            ans[0]=left+1;
+            ans[1]=right+1;
+            return ans;
+        }
+        s>target?right--:left++;
+    }
+}
